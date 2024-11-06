@@ -33,20 +33,15 @@ from crewai import Agent, Task, Crew, Process
 ### Initialize AgentNeo Session
 ```python
 from agentneo import AgentNeo, Tracer ,Evaluation, launch_dashboard
-
 # Initialize the AgentNeo session
 neo_session = AgentNeo(session_name="Your Session name")
-
 # Connect to a project
 neo_session.create_project(project_name="Your Project name")
-
 # Create a tracer to track metrics
 tracer = Tracer(session=neo_session)
 tracer.start()
 ```
-
 ## Key Integration Points
-
 ### Build Agents
 Define agents involved in your campaign and trace their interactions using the `Tracer`.
 
@@ -58,7 +53,6 @@ Connect agents and tasks into a crew and execute it.
 
 ```python
 from crewai import Crew, Process
-
 # Create a crew and execute the tasks
 crew = Crew(
     agents=[your agent name],
@@ -66,18 +60,14 @@ crew = Crew(
     process=Process.process_name,
     verbose=True/False,
 )
-
 # Kick off the crew
 result = crew.kickoff()
 print(result)
-
 # Stop the tracer
 tracer.stop()
 ```
-
 ### Evaluating Metrics
 You can evaluate the success of the integration using metrics.
-
 ```python
 exe = Evaluation(session=neo_session, trace_id=tracer.trace_id)
 
@@ -86,7 +76,6 @@ exe.evaluate(metric_list=['goal_decomposition_efficiency',
                          'goal_fulfillment_rate', 
                          'tool_call_correctness_rate', 
                          'tool_call_success_rate'])
-
 # Print metric results
 results = exe.get_results()
 results
@@ -94,10 +83,7 @@ results
 
 ### Launch Dashboard
 For monitoring the session metrics, launch the AgentNeo dashboard.
-
 ```python
 # Launch the dashboard 
 neo_session.launch_dashboard()
 ```
-
-
