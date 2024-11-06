@@ -1,13 +1,6 @@
 # Integration Guide for AgentNeo and CrewAI
 
 This guide provides a comprehensive overview of how to integrate AgentNeo with CrewAI, focusing on setup, integration points, configuration, and troubleshooting. 
-
-## Table of Contents
-- [Setup Steps for AgentNeo and CrewAI](#setup-steps-for-agentneo-and-crewai)
-- [Key Integration Points](#key-integration-points)
-- [Configuration Guidelines](#configuration-guidelines)
-- [Common Troubleshooting Tips](#common-troubleshooting-tips)
-
 ## Setup Steps for AgentNeo and CrewAI
 
 ### Prerequisites
