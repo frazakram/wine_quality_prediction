@@ -27,14 +27,16 @@ This guide provides a comprehensive overview of how to integrate AgentNeo with C
    ```
    OPENAI_API_KEY=<your_openai_api_key>
    ```
-
 3. **Load Environment Variables**:
    Prepare to load environment variables in your Python script:
    ```python
    from dotenv import load_dotenv
    load_dotenv("path_to_your_env/.env")
    ```
-
+### Initialize CrewAI
+```python
+from crewai import Agent, Task, Crew, Process
+```
 ### Initialize AgentNeo Session
 ```python
 from agentneo import AgentNeo, Tracer ,Evaluation, launch_dashboard
