@@ -11,21 +11,21 @@ This guide provides a comprehensive overview of how to integrate AgentNeo with C
 ## Setup Steps for AgentNeo and CrewAI
 
 ### Prerequisites
-- Python 3.7 or higher
+- Python 3.9 or higher
 - Administrative access to install packages
 - A `.env` file for environment variables containing necessary API keys and configurations.
 
 ### Installation
 1. **Install Required Packages**:
    ```bash
-   pip install crewai agentneo python-dotenv langchain-community
+   pip install  agentneo==1.2.1
+   pip install crewai==0.70.1
    ```
 
 2. **Create a .env File**:
    Create a `.env` file in your project directory with the required environment variables, such as API keys and configuration settings. For example:
    ```
-   AGENTNEO_API_KEY=<your_agentneo_api_key>
-   CREWAI_API_KEY=<your_crewai_api_key>
+   OPENAI_API_KEY=<your_openai_api_key>
    ```
 
 3. **Load Environment Variables**:
@@ -37,13 +37,13 @@ This guide provides a comprehensive overview of how to integrate AgentNeo with C
 
 ### Initialize AgentNeo Session
 ```python
-from agentneo import AgentNeo, Tracer
+from agentneo import AgentNeo, Tracer ,Evaluation, launch_dashboard
 
 # Initialize the AgentNeo session
-neo_session = AgentNeo(session_name="marketing_campaign_example103")
+neo_session = AgentNeo(session_name="marketing_campaign_example")
 
 # Connect to a project
-neo_session.create_project(project_name="marketing_campaign_project103")
+neo_session.create_project(project_name="marketing_campaign_project")
 
 # Create a tracer to track metrics
 tracer = Tracer(session=neo_session)
@@ -54,6 +54,7 @@ tracer.start()
 
 ### Build Agents
 Define agents involved in your campaign and trace their interactions using the `Tracer`.
+### Example
 
 ```python
 from crewai import Agent
@@ -135,23 +136,25 @@ tracer.stop()
 You can evaluate the success of the integration using metrics.
 
 ```python
-from agentneo import Evaluation
+exe = Evaluation(session=neo_session, trace_id=tracer.trace_id)
 
-# Execute evaluation metrics
-exe = Evaluation(session=neo_session, trace_id=1)
-exe.evaluate(metric_list=['tool_call_success_rate'])
+# run a single metric
+exe.evaluate(metric_list=['goal_decomposition_efficiency', 
+                         'goal_fulfillment_rate', 
+                         'tool_call_correctness_rate', 
+                         'tool_call_success_rate'])
 
 # Print metric results
-metric_results = exe.get_results()
-print(metric_results)
+results = exe.get_results()
+results
 ```
 
 ### Launch Dashboard
 For monitoring the session metrics, launch the AgentNeo dashboard.
 
 ```python
-# Launch the dashboard on port 3000
-neo_session.launch_dashboard(port=3000)
+# Launch the dashboard 
+neo_session.launch_dashboard()
 ```
 
 ## Configuration Guidelines
