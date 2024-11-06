@@ -61,10 +61,10 @@ from crewai import Crew, Process
 
 # Create a crew and execute the tasks
 crew = Crew(
-    agents=[],
-    tasks=[],
-    process=,
-    verbose=,
+    agents=[your agent name],
+    tasks=[your task name],
+    process=Process name,
+    verbose=True/False,
 )
 
 # Kick off the crew
