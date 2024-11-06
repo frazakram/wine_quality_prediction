@@ -35,10 +35,10 @@ from crewai import Agent, Task, Crew, Process
 from agentneo import AgentNeo, Tracer ,Evaluation, launch_dashboard
 
 # Initialize the AgentNeo session
-neo_session = AgentNeo(session_name="marketing_campaign_example")
+neo_session = AgentNeo(session_name="Your Session name")
 
 # Connect to a project
-neo_session.create_project(project_name="marketing_campaign_project")
+neo_session.create_project(project_name="Your Project name")
 
 # Create a tracer to track metrics
 tracer = Tracer(session=neo_session)
