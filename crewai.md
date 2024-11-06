@@ -56,61 +56,9 @@ tracer.start()
 
 ### Build Agents
 Define agents involved in your campaign and trace their interactions using the `Tracer`.
-### Example
-
-```python
-from crewai import Agent
-
-# Define a marketing strategist agent
-@tracer.trace_agent("strategist")
-def create_strategist():
-    return Agent(
-        role='Marketing Strategist',
-        goal='Develop a high-impact marketing campaign for a new AI product',
-        backstory="""You are a seasoned marketing strategist at a leading tech company.
-        You excel at creating data-driven campaigns that resonate with target audiences.""",
-        verbose=True,
-        allow_delegation=False,
-    )
-
-# Define a creative director agent
-@tracer.trace_agent("designer")
-def create_designer():
-    return Agent(
-        role='Creative Director',
-        goal='Design visually appealing assets for a marketing campaign',
-        backstory="""You are a Creative Director with a flair for developing innovative designs.
-        You translate marketing concepts into visual masterpieces.""",
-        verbose=True,
-        allow_delegation=True,
-    )
-
-# Create agent instances
-strategist = create_strategist()
-designer = create_designer()
-```
 
 ### Define Tasks
 Create tasks that each agent will perform.
-
-```python
-from crewai import Task
-
-# Define tasks for the agents
-task1 = Task(
-    description="""Develop a comprehensive marketing strategy for launching a new AI product.
-    Consider SEO, target demographics, and competition analysis.""",
-    expected_output="Full marketing strategy document",
-    agent=strategist
-)
-
-task2 = Task(
-    description="""Create design assets (e.g., social media banners, infographics) based on the marketing strategy.
-    Ensure consistency with the product's brand identity.""",
-    expected_output="Designs in PNG format",
-    agent=designer
-)
-```
 
 ### Create and Execute Crew
 Connect agents and tasks into a crew and execute it.
@@ -120,10 +68,10 @@ from crewai import Crew, Process
 
 # Create a crew and execute the tasks
 crew = Crew(
-    agents=[strategist, designer],
-    tasks=[task1, task2],
-    process=Process.sequential,
-    verbose=True,
+    agents=[],
+    tasks=[],
+    process=,
+    verbose=,
 )
 
 # Kick off the crew
