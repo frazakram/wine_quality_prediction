@@ -1,23 +1,24 @@
 # Integration Guide for AgentNeo and CrewAI
+#CrewAI
+CrewAI is a framework for easily building multi-agent applications.
 
-This guide provides a comprehensive overview of how to integrate AgentNeo with CrewAI, focusing on setup, integration points, configuration, and troubleshooting. 
+This guide provides a comprehensive overview of how to integrate AgentNeo with CrewAI, focusing on setup, integration points, configuration, and troubleshooting. AgentNeo and CrewAI teamed up to make monitoring Crew agents dead simple.
 ## Setup Steps for AgentNeo and CrewAI
 
 ### Prerequisites
-- Python 3.9 or higher
-- Administrative access to install packages
+- Python 3.9 + on your machine
 - A `.env` file for environment variables containing necessary API keys and configurations.
 
 ### Installation
-1. **Install Required Packages**:
+1. **Install the AgentNeo and crewAI SDK**:
    ```bash
    pip install  agentneo==1.2.1
    pip install crewai==0.70.1
    ```
 
-2. **Create a .env File**:
-   Create a `.env` file in your project directory with the required environment variables, such as API keys and configuration settings. For example:
-   ```
+2. **Set your API key as an .env variable for easy access**: 
+   Set `OPENAI_API_KEY` as an environment variable
+   ```python
    OPENAI_API_KEY=<your_openai_api_key>
    ```
 3. **Load Environment Variables**:
@@ -70,8 +71,7 @@ tracer.stop()
 You can evaluate the success of the integration using metrics.
 ```python
 exe = Evaluation(session=neo_session, trace_id=tracer.trace_id)
-
-# run a single metric
+# run  metrics
 exe.evaluate(metric_list=['goal_decomposition_efficiency', 
                          'goal_fulfillment_rate', 
                          'tool_call_correctness_rate', 
@@ -80,9 +80,8 @@ exe.evaluate(metric_list=['goal_decomposition_efficiency',
 results = exe.get_results()
 results
 ```
+### Need a visual? Just launch the dashboard:
 
-### Launch Dashboard
-For monitoring the session metrics, launch the AgentNeo dashboard.
 ```python
 # Launch the dashboard 
 neo_session.launch_dashboard()
