@@ -63,7 +63,7 @@ from crewai import Crew, Process
 crew = Crew(
     agents=[your agent name],
     tasks=[your task name],
-    process=Process name,
+    process=Process.process_name,
     verbose=True/False,
 )
 
