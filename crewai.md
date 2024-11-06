@@ -159,17 +159,4 @@ For monitoring the session metrics, launch the AgentNeo dashboard.
 neo_session.launch_dashboard()
 ```
 
-## Configuration Guidelines
-- Ensure that the API keys in your `.env` file are correct and have necessary access rights.
-- Validate that all required packages are installed and up-to-date.
-- Regularly monitor for updates to `AgentNeo` and `CrewAI` libraries to leverage new features and fixes.
-- Tailor agents' roles and tasks to fit the specific outcomes needed for your marketing campaigns.
 
-## Common Troubleshooting Tips
-- **Environment Variables Not Loaded**: Ensure the path to the `.env` file is correct and that it is formatted properly.
-- **API Key Errors**: Validate that the API keys are correctly set up in the environment variables and have necessary permissions.
-- **Connection Issues**: Verify that your internet connection is stable and that the APIs are operational.
-- **Code Exceptions**: Always check for error messages in the console that can guide you to the root cause, such as module not found, incorrect parameters, etc.
-- **Metrics Not Reflecting**: If metrics aren’t displaying correctly, ensure tracing is correctly implemented, and the environment is appropriately set up.
-
-By following these guidelines, you can effectively integrate AgentNeo and CrewAI for your marketing campaigns, leveraging the unique capabilities of both platforms.
