@@ -11,7 +11,7 @@ This guide provides a step-by-step walkthrough for integrating AgentNeo with Cre
 
 ---
 
-### Step 1: Set Up AgentNeo Environment
+## Step 1: Set Up AgentNeo Environment
 
 **First up, install AgentNeo and CrewAI** as follows:
    ```bash
@@ -24,7 +24,7 @@ This guide provides a step-by-step walkthrough for integrating AgentNeo with Cre
    OPENAI_API_KEY=<your_openai_api_key>
    ```
 
-### Step 2: Initialize AgentNeo Session
+## Step 2: Initialize AgentNeo Session
 
 The session is your workspace where all monitoring data is collected and analyzed. It’s crucial to set this up correctly, as follows:
 ```python
@@ -37,9 +37,8 @@ tracer = Tracer(session=neo_session)
 tracer.start()
 ```
 
-### Step 3: Define Agent Roles in CrewAI
-
-1. **Create Role Function**  
+## Step 3: Define Agent Roles in CrewAI
+ Create Role Function  
    Define each agent’s, LLM’s, and task’s function in CrewAI based on the project requirements, and track them with `tracer`, as shown below:
    ```python
    @tracer.trace_llm("my_llm_call")
@@ -58,7 +57,7 @@ tracer.start()
        pass
    ```
 
-### Step 4: Integrate CrewAI with Tracer
+## Step 4: Integrate CrewAI with Tracer
 
    Integrate the role functions in CrewAI’s configuration file, as follows:
 
@@ -75,7 +74,7 @@ tracer.start()
    ```
 Here, you can integrate all the role functions with CrewAI, as the role functions are traced by `Tracer` of `AgentNeo`, i.e., CrewAI and AgentNeo are integrated now.
 
-### Step 5: Kick off the Crew
+## Step 5: Kick off the Crew
 
 **Kick off the crew** using `crew.kickoff()`, which initiates the analysis pipeline, as shown below:
 ```python
