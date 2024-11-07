@@ -28,7 +28,7 @@ This guide provides a step-by-step walkthrough for integrating AgentNeo with Cre
 
 The session is your workspace where all monitoring data is collected and analyzed. It’s crucial to set this up correctly, as follows:
 ```python
-from agentneo import AgentNeo, Tracer, Evaluation, launch_dashboard
+from agentneo import AgentNeo
 # Start your session (give it a name that makes sense to you)
 neo_session = AgentNeo(session_name="your session name")
 neo_session.create_project(project_name="your project name")
@@ -39,8 +39,9 @@ tracer.start()
 
 ## Step 3: Define Agent Roles in CrewAI
  Create Role Function  
-   Define each agent’s, LLM’s, and task’s function in CrewAI based on the project requirements, and track them with `tracer`, as shown below:
+   Define each agent’s, LLM’s, and task’s function in CrewAI based on the project requirements, and track them with `Tracer`, as shown below:
    ```python
+from agentneo import Tracer
    @tracer.trace_llm("my_llm_call")
    async def my_llm_function():
        # Your LLM call here
